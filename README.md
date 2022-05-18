@@ -18,7 +18,7 @@ Allele call 2"
 
 # Map format
 
-# Map from the PLINK documentation
+## Map from the PLINK documentation
 
 "A text file with no header file, and one line per variant with the following 3-4 fields:
 
@@ -52,7 +52,7 @@ The attached Rscript illumina_to_lgen creates the associated lgen and map file u
 
 # Example Run
 
-*Rscript illumina_to_lgen.R --illumina PATH/TO/FinalReport.txt --outputdir PATH/TO/OutputDirectory/
+* Rscript illumina_to_lgen.R --illumina PATH/TO/FinalReport.txt --outputdir PATH/TO/OutputDirectory/
 
 This script will generate dummy values to be used by certain columns in the output file. Within the lgen file, the "fid" column is a dummy value. It is simply a duplicate of the sample ids. Within the map file, the "Genetic Distance" aka the third column is a dummy column. Its contents are all set to 0.
 
