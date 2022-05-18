@@ -2,7 +2,7 @@ About
 
 This gist details how to convert illumina final report genotype data to an input useable by PLINK. From there the genotype can be quality controlled and the end results exported to a .vcf file or otherwise parsed.
 
-Lgen/PLINK format
+# Lgen/PLINK format
 
 lgen from the PLINK documentation "A text file with no header line, and one line per genotype call (or just not-homozygous-major calls if 'lgen-ref' was invoked) usually with the following five fields:
 
@@ -16,9 +16,9 @@ Allele call 1 ('0' for missing)
 
 Allele call 2"
 
-Map format
+# Map format
 
-Map from the PLINK documentation
+# Map from the PLINK documentation
 
 "A text file with no header file, and one line per variant with the following 3-4 fields:
 
@@ -30,7 +30,7 @@ Position in morgans or centimorgans (optional; also safe to use dummy value of '
 
 Base-pair coordinate"
 
-Fam format
+# Fam format
 
 Fam from the PLINK documentation "A text file with no header line, and one line per sample with the following six fields:
 
@@ -50,10 +50,11 @@ Creating the lgen and map file
 
 The attached Rscript illumina_to_lgen creates the associated lgen and map file used by plink. It can be saved into your directory as is to run with cli. To run it from the command line you must supply it with the illumina finalreport.txt file and an outpout directory. This will output two files into the output directory "mets.map" and "mets.lgen." Not that this will overwrite any existing file in the output directory that already bears these names. Also not that for its two allele calls thsi script chooses forward allele 1 and forward allele 2.
 
-Example Run
+# Example Run
 
-Rscript illumina_to_lgen.R --illumina PATH/TO/FinalReport.txt --outputdir PATH/TO/OutputDirectory/
-dummy values This script will generate dummy values to be used by certain columns in the output file. Within the lgen file, the "fid" column is a dummy value. It is simply a duplicate of the sample ids. Within the map file, the "Genetic Distance" aka the third column is a dummy column. Its contents are all set to 0.
+*Rscript illumina_to_lgen.R --illumina PATH/TO/FinalReport.txt --outputdir PATH/TO/OutputDirectory/
+
+This script will generate dummy values to be used by certain columns in the output file. Within the lgen file, the "fid" column is a dummy value. It is simply a duplicate of the sample ids. Within the map file, the "Genetic Distance" aka the third column is a dummy column. Its contents are all set to 0.
 
 Creating the fam file
 
